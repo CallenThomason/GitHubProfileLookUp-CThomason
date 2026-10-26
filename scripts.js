@@ -1,6 +1,3 @@
-//alert(); 
-
-
 
 // ---- data ------
 const octocat = {
@@ -45,11 +42,14 @@ const octocat = {
 const newUser = document.getElementById("new-user");
 const searchButton = document.getElementById("search-user");
 const userOutput = document.getElementById("output");
-
-// const url = "https://api.github.com/users/";
+const userNum = document.getElementById("num"); 
+const userImage = document.getElementById("image"); 
+const url = "https://api.github.com/users/";
 // ---- functions -----
 function searchUser() {
     userOutput.replaceChildren();
+    userNum.replaceChildren(); 
+    userImage.replaceChildren(); 
     const user = document.createElement("p");
     const image = document.createElement("img");
     const id = document.createElement("p");
@@ -58,9 +58,7 @@ function searchUser() {
     const followers = document.createElement("p");
     const following = document.createElement("p");
     let exists = false;
-    // if(newUser.value === data.login){
-    //     exists = true; 
-    // }
+    
     const newURL = url + newUser.value;
 
 
@@ -76,17 +74,18 @@ function searchUser() {
                 if (exists) {
                     user.textContent = data.name;
                     image.src = data.avatar_url;
-                    image.width = 120;
+                    image.width = 160;
                     image.height = 120;
                     image.alt = `{data.username}'s profile picture`;
                     id.textContent = `Id: ${data.id}`;
                     
-                     repos.textContent =`Public Repos: ${data.public_repos}` ;
-                     pg.textContent = `Public Gists ${ data.public_gists}`;
+                     repos.textContent =`Repos: ${data.public_repos}` ;
+                     pg.textContent = `Gists: ${ data.public_gists}`;
                    followers.textContent = `Followers: ${data.followers}`;
                    following.textContent = `Following: ${data.following}`; 
                     user.classList.remove("empty");
                     user.classList.add("title");
+                    image.classList.add("imageBorder"); 
                 }
                 else {
                     user.textContent = "This user does not exist";
@@ -106,22 +105,41 @@ function searchUser() {
 
     }
 
+
+
     userOutput.appendChild(user);
 
+    //start of testing
+    //   user.textContent = octocat.name;
+    //                 image.src = octocat.avatar_url;
+    //                 image.width = 160;
+    //                 image.height = 120;
+    //                 image.alt = `{data.username}'s profile picture`;
+    //                 id.textContent = `Id: ${octocat.id}`;
+                    
+    //                  repos.textContent =`Repos: ${octocat.public_repos}` ;
+    //                  pg.textContent = ` Gists: ${ octocat.public_gists}`;
+    //                followers.textContent = `Followers: ${octocat.followers}`;
+    //                following.textContent = `Following: ${octocat.following}`; 
+    //                 user.classList.remove("empty");
+    //                 user.classList.add("title");
+    //                 userNum.appendChild(id);
+    //     userNum.appendChild(repos);
+    //      userNum.appendChild(pg);
+    //      userNum.appendChild(following);
+    //      userNum.appendChild(followers);
+    //     userImage.appendChild(image);
+       // end of testing
+
     if (newUser.value !== "") {
-        userOutput.appendChild(id);
-        userOutput.appendChild(repos);
-        userOutput.appendChild(pg);
-        userOutput.appendChild(following);
-        userOutput.appendChild(followers);
-        userOutput.appendChild(image);
+        userNum.appendChild(id);
+         userNum.appendChild(repos);
+         userNum.appendChild(pg);
+         userNum.appendChild(following);
+         userNum.appendChild(followers);
+        userImage.appendChild(image);
 
-        //  userOutput.appendChild(`Id: ${id}`);
-        // userOutput.appendChild(`Public Repos: ${pr}`);
-        // userOutput.appendChild(`Public Gists: ${pg}`);
-        // userOutput.appendChild(`Follwing: ${following}`);
-        // userOutput.appendChild(`Followers: ${followers}`);
-
+    
     }
     newUser.value = "";
 
