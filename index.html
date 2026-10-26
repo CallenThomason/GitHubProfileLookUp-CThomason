@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-mauve-300">
+    <header class="font-bold text-3xl text-center bg-yellow-100 p-2 my-3">
+        <h1>GitHub LookUp</h1>
+    </header>
+    <div class="flex flex-col p-2 gap-2 text-center">
+        <label for="new-user" class=" block mb-1 underline">Search For User</label>
+        <input id="new-user" type="text" class="border p-2 bg-white mb-1 mx-20">
+        <button id="search-user" class=" flex flex-row border px-3 py-1 bg-white text-center mx-auto rounded-xl mt-2"> Add </button>
+    </div>
+    <div class="grid h-100 w-100 grid-col-1 gap-8 mx-auto ">
+        <div class="bg-white border-2 border-slate-200 rounded-lg flex-row text-center p-2 place-items-center">
+           <div id="output">
+
+
+           </div>
+           
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
